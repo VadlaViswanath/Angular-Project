@@ -1,0 +1,31 @@
+
+<div class="container">
+  <form>
+      <input type="checkbox" [(ngModel)]="all" name="all" (change)="changeData2()">All
+      <input type="checkbox" [(ngModel)]="accepted" name="accepted" (change)="changeData()">Accepted
+      <input type="checkbox" [(ngModel)]="deleted" name="deleted" (change)="changeData()">Deleted
+      <input type="checkbox" [(ngModel)]="proposed" name="proposed" (change)="changeData()">Proposed
+      <input type="checkbox" [(ngModel)]="existing" name="existing" (change)="changeData()">Existing
+  </form>
+</div>
+
+
+<table class="table table-bordered" style="width: 50%;">
+  <thead>
+      <tr>
+          <th>Id</th>
+          <th>Brand</th>
+          <th>Price</th>
+          <th>Status</th>
+      </tr>
+  </thead>
+
+  <tbody>
+      <tr *ngFor="let data of arrayDataTemp">
+<td>{{data.id}}</td>
+          <td>{{data.brand}}</td>
+          <td>{{data.price}}</td>
+          <td>{{data.status}}</td>
+      </tr>
+  </tbody>
+</table>

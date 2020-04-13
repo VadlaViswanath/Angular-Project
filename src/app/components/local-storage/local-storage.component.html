@@ -1,0 +1,47 @@
+<div class="container">
+  <form #myForm="ngForm" (ngSubmit)="submit()">
+      <div class="form-group">
+          <label>Name</label>
+          <input type="text" [(ngModel)]="user.name" class="form-control" name="name">
+      </div>
+  
+      <div class="form-group">
+          <label>Mobile</label>
+          <input type="text" [(ngModel)]="user.mobile" class="form-control" name="mobile">
+      </div>
+  
+      <div class="form-group">
+          <label>Date of Birth</label>
+          <input type="date" [(ngModel)]="user.dob" class="form-control" name="dob">
+      </div>
+      
+      <input type="submit" value="submit" class="btn btn-warning">
+  </form>
+
+
+</div>
+<br><br>
+<button (click)="deleteData()" class="btn btn-danger">Delete Data</button>
+<button (click)="getData()" class="btn btn-primary">Get Data</button>
+
+<div class="container">
+  <table class="table table-bordered">
+      <thead>
+          <tr>
+              <th>Name</th>
+              <th>Mobile</th>
+              <th>Date of Birth</th>
+          </tr>
+      </thead>
+
+      <tbody>
+          <tr *ngFor="let data of arrayData2">
+              <td>{{data.name}}</td>
+              <td>{{data.mobile}}</td>
+              <td>{{data.dob}}</td>
+          </tr>
+      </tbody>
+  </table>
+</div>
+
+

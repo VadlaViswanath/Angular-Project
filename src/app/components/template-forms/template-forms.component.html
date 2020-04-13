@@ -1,0 +1,59 @@
+
+<h1>CRUD Operations using http Service</h1>
+
+<div class="container">
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>EMPLOYEE NAME</th>
+                <th>JOB</th>
+                <th>SALARY</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr *ngFor="let e of employe">
+                <td>{{e.id}}</td>
+                <td>{{e.name}}</td>
+                <td>{{e.job}}</td>
+                <td>{{e.salary}}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <hr>
+
+    
+    <button (click)="addRow()" class="btn btn-success">AddRow</button> &nbsp;
+    <button (click)="searchRowById(y.id)" class="btn btn-info">Select</button> &nbsp;
+    <button (click)="updateRow(y.id)" class="btn btn-warning">UpdateRow</button> &nbsp;
+    <button (click)="deleteRow(y.id)" class="btn btn-danger">DeleteRow</button> 
+    
+    <br> <br> 
+    
+    <table border="1">
+        <tr>
+            <th>ID</th>
+            <td><input type="text" [(ngModel)]="y.id" /></td>
+        </tr>
+    
+        <tr>
+            <th>Employee Name</th>
+            <td><input type="text" [(ngModel)]="y.name" /></td>
+        </tr>
+    
+        <tr>
+            <th>JOB</th>
+            <td><input type="text" [(ngModel)]="y.job" /></td>
+        </tr>
+    
+        <tr>
+            <th>Salary</th>
+            <td><input type="number" [(ngModel)]="y.salary" /></td>
+        </tr>
+    </table>
+
+
+</div>
+

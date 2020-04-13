@@ -1,0 +1,47 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  },
+  "employees": [
+    {
+      "id": "201",
+      "name": "viswanath Achari",
+      "job": "UI Developer",
+      "salary": 40000
+    }
+  ],
+  "user":[
+      {
+        "username":"visu",
+        "password":1234
+      }
+  ],
+  "users": [
+    {
+      "fullName": "viswanath",
+      "password": "chgjvbjknm",
+      "email": "viswanathvadla920@gmail.com",
+      "mobile": 9505734011,
+      "address": {
+        "city": "kurnool",
+        "state": "Andhra Pradesh",
+        "postalCode": 518422
+      },
+      "id": 1
+    }
+  ]
+}
