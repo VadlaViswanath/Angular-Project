@@ -4,6 +4,7 @@ import {FormsModule} from '@angular/forms';
 import {  ReactiveFormsModule} from "@angular/forms";
 import { HttpClientModule } from "@angular/common/http";
 
+import { CountryService } from 'src/app/country.service';
 
 import { AppComponent } from './app.component';
 import { ReactiveFormsComponent } from './components/reactive-forms/reactive-forms.component';
@@ -29,7 +30,7 @@ import { LoginComponent } from './components/login/login.component';
     AppRoutingModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [CountryService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

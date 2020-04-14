@@ -43,5 +43,79 @@
       },
       "id": 1
     }
+  ],
+  "countries": [
+    {
+      "id": 1,
+      "country": "India"
+    },
+    {
+      "id": 2,
+      "country": "USA"
+    }
+  ],
+  "states": [
+    {
+      "id": 1,
+      "state": "Andhra Pradesh",
+      "country_id": 1
+    },
+    {
+      "id": 2,
+      "state": "Telangana",
+      "country_id": 1
+    },
+    {
+      "id": 3,
+      "state": "Tamilnadu",
+      "country_id": 1
+    },
+    {
+      "id": 4,
+      "state": "Delhi",
+      "country_id": 1
+    },
+    {
+      "id": 5,
+      "state": "NewYork",
+      "country_id": 2
+    },
+    {
+      "id": 6,
+      "state": "wasington",
+      "country_id": 2
+    },
+    {
+      "id": 7,
+      "state": "dallas",
+      "country_id": 2
+    }
+  ],
+  "cities": [
+    {
+      "id": 1,
+      "city": "kurnool",
+      "state_id": 1
+    },
+    {
+      "id": 2,
+      "city": "Hyd",
+      "state_id": 2
+    },
+    {
+      "id": 3,
+      "city": "chennai",
+      "state_id": 3
+    },
+    {
+      "id": 4,
+      "city": "jersy",
+      "state_id": 6
+    },
+    {
+      "id": 5,
+      "city": "sanfransisco",
+      "state_id": 7
+    }
   ]
 }

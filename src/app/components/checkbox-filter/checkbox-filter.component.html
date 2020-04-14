@@ -1,4 +1,4 @@
-
+        <h3>Check-Box Filter</h3>
 <div class="container">
   <form>
       <input type="checkbox" [(ngModel)]="all" name="all" (change)="changeData2()">All
@@ -7,7 +7,7 @@
       <input type="checkbox" [(ngModel)]="proposed" name="proposed" (change)="changeData()">Proposed
       <input type="checkbox" [(ngModel)]="existing" name="existing" (change)="changeData()">Existing
   </form>
-</div>
+
 
 
 <table class="table table-bordered" style="width: 50%;">
@@ -29,3 +29,157 @@
       </tr>
   </tbody>
 </table>
+</div>
+<!-- ============ -->
+                        <h3>Dependent select Box</h3>
+
+<form class="container">
+
+    <div class="form-group">
+      <label>country</label>
+      <select class="form-control" name="country" [(ngModel)]="country" (change)="getState($event.target.value)">
+        <option value="">select country</option>
+        <option *ngFor="let countries of countryData" value="{{countries.id}}">{{countries.country}}</option>
+      </select>
+    </div>
+  
+    <div class="form-group">
+      <label>state</label>
+      <select class="form-control" name="state" [(ngModel)]="state" (change)="getCity($event.target.value)">
+        <option value="">select state</option>
+        <option *ngFor="let states of stateData" value="{{states.id}}">{{states.state}}</option>
+      </select>
+    </div>
+  
+    <div class="form-group">
+      <label>city</label>
+      <select class="form-control" name="city" [(ngModel)]="city">
+        <option value="">select city</option>
+        <option *ngFor="let cities of cityData">{{cities.city}}</option>
+      </select>
+    </div>
+  
+  
+  </form>
+  <!-- ================ -->
+
+  <h3>Display Data based on Radio button</h3>
+
+  <div class="container" *ngFor="let opt of userData">
+    <form>
+        <input type="radio" [(ngModel)]="opt.flag" name="opt.name" (change)="changeDataRadio(opt)">{{opt.name}}  
+    </form>
+</div>
+
+
+<div *ngFor="let data of userDetails">
+   <h3>Gender:{{data.gender}}</h3>
+    <h3>Age:{{data.age}}</h3>
+   
+</div>
+
+
+<!-- ===================== -->
+<div class="container">
+<h2>Input field is required when cheked</h2>
+<h4>Template driven form</h4>
+
+<form myForm2="ngForm">
+  <input type="text" [(ngModel)]="name" name="name">
+
+<input type="radio" required [(ngModel)]="check" #checkValue="ngModel" value="birth"  name="dob" >Date of Birth
+<input type="radio" required [(ngModel)]="check" #checkValue="ngModel" value="phone"  name="dob" >Mobile Number
+<h4>checkbox value:{{checkValue.value}}</h4>
+
+
+<input type="date"  name="birth3" [(ngModel)]="birth3" [required]="checkValue.value=='birth'" #birth2="ngModel">
+<span class="error" *ngIf="birth2.touched && birth2.errors?.required" >
+  Date of birth is required
+</span>
+
+<input type="number"  name="mobile" [(ngModel)]="mobile" [required]="checkValue.value=='phone'" #mobile2="ngModel">
+<span class="error" *ngIf="mobile2.touched && mobile2.errors?.required" >
+Mobile Number is required
+</span>
+</form>
+
+<br><br>
+
+		<h4>reactive Form</h4>
+
+
+  <form [formGroup]="myForm2">
+  <input type="text" formControlName="name">
+
+<input type="radio" formControlName="checkValue" required value="birth"> Date of birth
+<input type="radio" formControlName="checkValue" required value="phone"> Mobile Number
+<h4>checkbox value:{{this.myForm2.controls.checkValue.value}}</h4>
+<input type="date" formControlName="dob" [required]="myForm2.controls.checkValue.value=='birth'" >
+
+ <span class="error" *ngIf="myForm2.controls.dob.touched && myForm2.controls.dob.errors?.required">Date of Birth is required</span>
+
+ <input type="number" formControlName="mobile" [required]="myForm2.controls.checkValue.value=='phone'" >
+
+ <span class="error" *ngIf="myForm2.controls.mobile.touched && myForm2.controls.mobile.errors?.required">Mobile Number is required</span>
+
+
+</form>
+</div>
+
+
+<!-- ================== -->
+<h2>Add multiple inputs using formArray with formBuilder</h2>
+<div class="container">
+<form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+    firstname:<input type="text" formControlName="firstname" class="form-control"> <br>
+    age:<input type="text" formControlName="age" class="form-control"><br>
+    Email:<input type="text" formControlName="email" class="form-control"><br>
+  
+  <div formArrayName="mobiles">
+    <h4>Enter your Mobile number</h4>
+    <div *ngFor="let mob of mobiles.controls; let i=index">
+      Mobile{{i+1}}:<input type="text" [formControlName]="i" class="form-control">
+  <button class="" (click)="deleteNumber(i)">delete</button>
+    </div>
+    <button (click)="addNewMobile()">Add New Mobile Number</button>
+  </div>
+  
+  
+    <input type="submit" value="submit" [disabled]="!userForm.valid">
+  </form>
+</div>
+
+<!-- ============================== -->
+<h2>Display Button based on select country</h2>
+<div class="container">
+<select  [(ngModel)]="country" >
+    <option>Select One</option>
+    <!-- <option>India</option>
+    <option>Canada</option>
+    <option>USA</option> -->
+    <option *ngFor="let item of countries">{{item}}</option>
+</select> <br><br>
+
+
+<div [ngSwitch]="country">
+<p *ngSwitchCase="'India'">
+    <button class="btn btn-success" (click)="navigate()">Click Here</button>  
+</p>
+
+<p *ngSwitchCase="'Canada'">
+    <button class="btn btn-primary" (click)="navigate2()">Click here 2</button> 
+</p>
+
+<p *ngSwitchCase="'USA'">
+    <button class="btn btn-warning" (click)="navigate2()">Click here 2</button> 
+</p>
+
+<p *ngSwitchCase="'Japan'">
+    <button class="btn btn-danger" (click)="navigate()">Click here 2</button> 
+</p>
+
+<p *ngSwitchDefault>
+    please select any
+</p>
+</div>
+</div>
