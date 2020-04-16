@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import { Router } from '@angular/router';
-
+import { Observable } from "rxjs";
 @Component({
   selector: 'app-template-forms',
   templateUrl: './template-forms.component.html',
@@ -12,7 +12,9 @@ export class TemplateFormsComponent implements OnInit {
   employe:Employee[];
   y:any={};
   url:string='http://localhost:3000/employees';
-  constructor(private http:HttpClient, private _router: Router) { 
+
+  
+  constructor(private http:HttpClient, private _router: Router) {
 
      //this.http.get<Employee[]>(this.url).subscribe(x => this.employe=x);
     this.http.get<Employee[]>(this.url).subscribe((x) => {

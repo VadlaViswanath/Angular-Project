@@ -22,13 +22,25 @@
       "name": "viswanath Achari",
       "job": "UI Developer",
       "salary": 40000
+    },
+    {
+      "id": "202",
+      "name": "suma",
+      "job": "teacher",
+      "salary": 20000
+    },
+    {
+      "id": "203",
+      "name": "hsdvbjknx ",
+      "job": "gfchvbnj",
+      "salary": 8465
     }
   ],
-  "user":[
-      {
-        "username":"visu",
-        "password":1234
-      }
+  "user": [
+    {
+      "username": "visu",
+      "password": 1234
+    }
   ],
   "users": [
     {
@@ -42,6 +54,18 @@
         "postalCode": 518422
       },
       "id": 1
+    },
+    {
+      "fullName": "visu",
+      "password": "fchgvjbhn",
+      "email": "viswanathvadla94@gmail.com",
+      "mobile": 9989223329,
+      "address": {
+        "city": "Hyderabad",
+        "state": "Andhra Pradesh",
+        "postalCode": 500073
+      },
+      "id": 2
     }
   ],
   "countries": [
