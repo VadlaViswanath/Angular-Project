@@ -15,28 +15,28 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit(): void {
-      var obser= Observable.create((obs)=>{
-      obs.next("visu");
-      //  obs.error("error detected");
-      // obs.complete();
-      setTimeout(()=>{
-        obs.next("suma");
-      },1000) 
-    });
+    //   var obser= Observable.create((obs)=>{
+    //   obs.next("visu");
+    //   //  obs.error("error detected");
+    //   // obs.complete();
+    //   setTimeout(()=>{
+    //     obs.next("suma");
+    //   },1000) 
+    // });
     
-    obser.subscribe((data)=>{
-      console.log(data);
-    })
+    // obser.subscribe((data)=>{
+    //   console.log(data);
+    // })
 
   //==============
-  var subject=new Subject()
+  // var subject=new Subject()
     
-      subject.subscribe(
-         x =>{
-           console.log(x);
-         }
-      )
-      subject.next('hi');
+  //     subject.subscribe(
+  //        x =>{
+  //          console.log(x);
+  //        }
+  //     )
+  //     subject.next('hi');
 
 
     }        

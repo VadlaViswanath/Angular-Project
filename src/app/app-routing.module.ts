@@ -6,9 +6,11 @@ import { TemplateFormsComponent } from './components/template-forms/template-for
 import { LocalStorageComponent } from './components/local-storage/local-storage.component';
 import { CheckboxFilterComponent } from './components/checkbox-filter/checkbox-filter.component';
 import { LoginComponent } from './components/login/login.component';
+import { RegistrationComponent } from './components/registration/registration.component';
 
 
 const appRoutes:Routes=[
+        {path:"registration",component:RegistrationComponent},
         {path:"login",component:LoginComponent},
         {path:"reactive",component:ReactiveFormsComponent},
         {path:"template",component:TemplateFormsComponent},

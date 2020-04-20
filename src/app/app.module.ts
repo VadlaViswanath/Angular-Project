@@ -3,6 +3,12 @@ import { NgModule } from '@angular/core';
 import {FormsModule} from '@angular/forms';
 import {  ReactiveFormsModule} from "@angular/forms";
 import { HttpClientModule } from "@angular/common/http";
+// import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+ 
+// import { ToastrModule } from 'ngx-toastr';
+
+
+
 
 import { CountryService } from 'src/app/country.service';
 
@@ -13,6 +19,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { LocalStorageComponent } from './components/local-storage/local-storage.component';
 import { CheckboxFilterComponent } from './components/checkbox-filter/checkbox-filter.component';
 import { LoginComponent } from './components/login/login.component';
+import { RegistrationComponent } from './components/registration/registration.component';
 
 @NgModule({
   declarations: [
@@ -21,14 +28,17 @@ import { LoginComponent } from './components/login/login.component';
     TemplateFormsComponent,
     LocalStorageComponent,
     CheckboxFilterComponent,
-    LoginComponent
+    LoginComponent,
+    RegistrationComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    // BrowserAnimationsModule,
+    // ToastrModule.forRoot()
   ],
   providers: [CountryService],
   bootstrap: [AppComponent]
