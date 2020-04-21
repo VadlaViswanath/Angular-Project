@@ -23,21 +23,34 @@ export class RegistrationComponent implements OnInit {
     passwords:this.fb.group({
       password:['',[Validators.required,Validators.minLength(4)]],
       confirmPassword:['',Validators.required]
-    }, { validator: this.comparePasswords })
+    // }, { validator: this.comparePasswords })
+  }, { validator: this.confirmPassMatch('password','confirmPassword') })
 
   });
 
-  comparePasswords(fb: FormGroup) {
-    let confirmPswrdCtrl = fb.get('confirmPassword');
-    //passwordMismatch
-    //confirmPswrdCtrl.errors={passwordMismatch:true}
-    if (confirmPswrdCtrl.errors == null || 'passwordMismatch' in confirmPswrdCtrl.errors) {
-      if (fb.get('password').value != confirmPswrdCtrl.value)
-        confirmPswrdCtrl.setErrors({ passwordMismatch: true });
-      else
-        confirmPswrdCtrl.setErrors(null);
-    }
+  confirmPassMatch(pwd:string,cpwd:string){
+      return (fG:FormGroup)=>{
+          const control = fG.controls[pwd];
+          const matchingControl = fG.controls[cpwd];
+          if(control.value !== matchingControl.value){
+              matchingControl.setErrors({confirmPasswordMatch:true});
+          } else {
+              matchingControl.setErrors(null);
+          }
+      }
   }
+
+  // comparePasswords(fb: FormGroup) {
+  //   let confirmPswrdCtrl = fb.get('confirmPassword');
+  //   //passwordMismatch
+  //   //confirmPswrdCtrl.errors={passwordMismatch:true}
+  //   if (confirmPswrdCtrl.errors == null || 'passwordMismatch' in confirmPswrdCtrl.errors) {
+  //     if (fb.get('password').value != confirmPswrdCtrl.value)
+  //       confirmPswrdCtrl.setErrors({ passwordMismatch: true });
+  //     else
+  //       confirmPswrdCtrl.setErrors(null);
+  //   }
+  // }
 
 
   onSubmit(){

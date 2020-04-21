@@ -48,7 +48,8 @@
       <div class="col-sm-10">
       <input class="form-control" type="password" formControlName="confirmPassword">
       <span class="text-danger" *ngIf="registrationForm.get('passwords.confirmPassword').touched && registrationForm.get('passwords.confirmPassword').errors?.required">This field is mandatory</span>
-      <span class="text-danger" *ngIf="registrationForm.get('passwords.confirmPassword').touched && registrationForm.get('passwords.confirmPassword').errors?.passwordMismatch">Confirm Password does not match.</span>
+      <!-- <span class="text-danger" *ngIf="registrationForm.get('passwords.confirmPassword').touched && registrationForm.get('passwords.confirmPassword').errors?.passwordMismatch">Confirm Password does not match.</span> -->
+      <span class="text-danger" *ngIf="registrationForm.get('passwords.confirmPassword').touched && registrationForm.get('passwords.confirmPassword').errors?.confirmPasswordMatch">Confirm Password does not match.</span>
   </div>
   </div>
   
